@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  smart-donation-backend:
+    build: ./Backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/smart-donation
+    depends_on:
+      - mongo
+    volumes:
+      - ./Backend/.env:/app/.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=smart-donation
+
+volumes:
+  mongo_data:

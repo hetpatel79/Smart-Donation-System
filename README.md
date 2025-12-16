@@ -1,5 +1,11 @@
 # Smart Donation System
 
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7.0+-green.svg)](https://www.mongodb.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-4.18+-black.svg)](https://expressjs.com/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
+
 A full-stack web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that connects donors with NGOs/admins for seamless resource donation management, approval, and tracking.
 
 ## Features
@@ -87,6 +93,34 @@ npm run dev
 ### 4. Access the Application
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:5000
+
+## Docker Setup (Alternative)
+
+For containerized deployment using Docker:
+
+### Backend with Docker
+1. Navigate to Backend directory:
+   ```bash
+   cd Backend
+   ```
+
+2. Build the Docker image:
+   ```bash
+   docker build -t smart-donation-backend .
+   ```
+
+3. Run the container:
+   ```bash
+   docker run -p 5000:5000 --env-file .env smart-donation-backend
+   ```
+
+### Using Docker Compose
+1. From project root, run:
+   ```bash
+   docker-compose up --build
+   ```
+
+2. Access the application at http://localhost:5000
 
 ## Documentation
 
